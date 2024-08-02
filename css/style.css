@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 :root {
-  --card-size: 125px;
+  --card-size: 120px;
   --rich-black: #00171f;
   --prussian-red: #7a210a;
   --pokeball: #a70000;
@@ -17,20 +17,21 @@
 body {
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: 100dvh;
   background-image: url(/images/pokeball-cover.jpg);
   color: #fff;
 }
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(4, var(--card-size));
-  gap: 15px;
+  grid-template-columns: repeat(4, minmax(40px, 120px));
+  gap: 10px;
+  padding: 10px 10px 10px 10px;
 }
 
 .card {
-  width: var(--card-size);
-  aspect-ratio: 1/1;
+  width: 100%;
+  aspect-ratio: 0.72/1;
   position: relative;
   perspective: 500px;
   transform-style: preserve-3d;
@@ -38,9 +39,9 @@ body {
 }
 
 .card img {
-  width: var(--card-size);
-  height: var(--card-size);
-  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   position: absolute;
   transition: 0.3s;
   backface-visibility: hidden;
@@ -96,50 +97,5 @@ body {
   button:active,
   button:hover {
     background: var(--rich-black);
-  }
-}
-
-@media (max-width: 460px) {
-  :root {
-    --card-size: 90px;
-  }
-
-  body {
-    padding: 10px;
-  }
-
-  .card-grid {
-    grid-template-columns: repeat(4, var(--card-size));
-    gap: 5px;
-  }
-
-  .card img {
-    border: 2px solid var(--rich-black);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  .modal:not([hidden]) {
-    h3 {
-      font-size: 28px;
-    }
-    p {
-      font-size: 12px;
-    }
-    button {
-      font-size: 10px;
-    }
-  }
-}
-@media (max-width: 720px) {
-  :root {
-    --card-size: 90px;
-  }
-
-  body {
-    padding: 10px;
-  }
-
-  .card-grid {
-    grid-template-columns: repeat(4, var(--card-size));
-    gap: 10px;
   }
 }
